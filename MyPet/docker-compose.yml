@@ -1,0 +1,27 @@
+services:
+  mysqldb:
+    image: mariadb:latest
+    container_name: dbmypet
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456789
+      MYSQL_DATABASE: mypet
+      MYSQL_PASSWORD: 123456789
+    volumes:
+      - dbmypet:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: pmr
+    links:
+      - mysqldb
+    environment:
+      PMA_HOST: mysqldb
+      PMA_PORT: 3306
+    restart: always
+    ports:
+      - 8082:80
+
+volumes:
+  dbmypet:
