@@ -1,0 +1,54 @@
+@startuml
+
+class           Pet{
+-petId   : Integer
+-petName : String
+-age     : Integer
+-type    : String
+-description : Text
+-pictures     :text
+
+}
+
+
+
+class           Person{
+-userId   : Integer
+-FullName : String
+-email    : String
+-password : String
+-image    :text
+-type     : String
+-phone    :String
+{method} singin(auth):Boolean
+{method} singup(user):Boolean
+
+}
+
+
+class AdoptionOffer{
+-{field} title: String
+-{field} description : String
+-{field} city : String
+-{field} NumberDay: Integer
+-{field} price  : Integer
+}
+
+class Comment {
+- commentId : Integer
+- commentBody : text
+}
+class Replay {
+- replayId : Integer
+- replayBody : text
+}
+
+AdoptionOffer "many" *--- "1" Pet : have
+AdoptionOffer "1" *--- "many" Comment : have
+Comment "1" *-- "many" Replay : have
+Person "1" *-- "many" Comment : commted
+Person "1" *-- "many" AdoptionOffer : adopte
+
+
+
+@enduml
