@@ -66,6 +66,7 @@ public class WebSecurity {
         final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsService());
         authenticationProvider.setPasswordEncoder(passwordEncoder());
+        System.out.println(authenticationProvider);
         return authenticationProvider;
     }
 
@@ -83,15 +84,11 @@ public class WebSecurity {
     public UserDetailsService userDetailsService() {
         return new UserDetailsService() {
             @Override
-            public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-                System.out.println("loaduser working");
+            public UserDetails loadUserByUsername(String email)  {
                 PersonEntity person = null;
                 try {
                     person = personService.findUserByEmail(email);
-                    System.out.println("user info "+ person.getEmail());;
-                } catch (InvocationTargetException e) {
-                    throw new RuntimeException(e);
-                } catch (IllegalAccessException e) {
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
                 return new User(person.getEmail(), person.getEncryptedPassword(), Collections.singleton(new SimpleGrantedAuthority("user")));

@@ -2,6 +2,8 @@ package com.mypet.MyPet.services.impl;
 
 import com.mypet.MyPet.dto.PersonDto;
 import com.mypet.MyPet.entities.PersonEntity;
+import com.mypet.MyPet.exceptions.ErrorMessages;
+import com.mypet.MyPet.exceptions.UserException;
 import com.mypet.MyPet.repositories.PersonRepository;
 import com.mypet.MyPet.services.PersonService;
 import com.mypet.MyPet.utils.Utils;
@@ -71,10 +73,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public PersonEntity findUserByEmail(String email) throws InvocationTargetException, IllegalAccessException {
+    public PersonEntity findUserByEmail(String email) throws Exception {
         PersonEntity personEntity = new PersonEntity();
         personEntity =  personRepository.findByEmail(email);
-        if (personEntity == null) throw new UsernameNotFoundException("email not found");
+//        if (personEntity == null) throw new UsernameNotFoundException("email not found");
+        if (personEntity == null)  throw new UserException(ErrorMessages.THE_USER_DONT_EXIST.getErrormessage());
         return personEntity;
     }
 

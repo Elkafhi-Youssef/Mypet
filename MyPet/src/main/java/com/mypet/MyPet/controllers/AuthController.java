@@ -1,5 +1,7 @@
 package com.mypet.MyPet.controllers;
 
+import com.mypet.MyPet.exceptions.ErrorMessages;
+import com.mypet.MyPet.exceptions.UserException;
 import com.mypet.MyPet.requests.PersonRequest;
 import com.mypet.MyPet.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -21,9 +23,12 @@ public class AuthController {
     @PostMapping("/authenticate")
     public ResponseEntity<String> authenticate(@RequestBody PersonRequest request) {
         System.out.println("here");
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+            );
+
+
         final UserDetails user = userDetailsService.loadUserByUsername(request.getEmail());
         if (user== null){
             System.out.println("user not exist");
@@ -32,7 +37,13 @@ public class AuthController {
         if (user != null) {
             return ResponseEntity.ok(jwtUtil.generateToken(user));
         }
+        } catch( Exception ex){
+            System.out.println(ex.getMessage());
+            throw new UserException(ErrorMessages.THE_USER_DONT_EXIST.getErrormessage());
+        }
+
         return ResponseEntity.status(400).body("error occurred");
+
     }
 
 }

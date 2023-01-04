@@ -1,6 +1,8 @@
 package com.mypet.MyPet.controllers;
 
 import com.mypet.MyPet.dto.PersonDto;
+import com.mypet.MyPet.exceptions.ErrorMessages;
+import com.mypet.MyPet.exceptions.UserException;
 import com.mypet.MyPet.requests.PersonRequest;
 import com.mypet.MyPet.responses.PersonResponse;
 import com.mypet.MyPet.services.PersonService;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins="*")
@@ -24,7 +27,10 @@ public class PersonController {
     )
     public ResponseEntity<PersonResponse> createUser(@RequestBody PersonRequest personRequest) throws Exception {
 
-//        if(userRequest.getFirstName().isEmpty()) throw new UserException(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage());
+        if(personRequest.getFullName().isEmpty()){
+          throw new UserException(ErrorMessages.MISSING_REQUIRED_FILED.getErrormessage());
+
+        }
 
         //UserDto userDto = new UserDto();
         //BeanUtils.copyProperties(userRequest, userDto);

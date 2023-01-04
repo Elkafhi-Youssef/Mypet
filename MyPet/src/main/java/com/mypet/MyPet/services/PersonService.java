@@ -20,5 +20,5 @@ public interface PersonService extends UserDetailsService {
     void deleteUser(String userId);
 
     List<PersonEntity> getUsers(int page, int limit, String search, int status);
-    PersonEntity findUserByEmail(String email) throws InvocationTargetException, IllegalAccessException;
+    PersonEntity findUserByEmail(String email) throws Exception;
 }
