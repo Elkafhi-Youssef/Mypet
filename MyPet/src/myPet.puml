@@ -5,7 +5,6 @@ class           Pet{
 -petName : String
 -age     : Integer
 -type    : String
--description : Text
 -pictures     :text
 
 }

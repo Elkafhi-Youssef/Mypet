@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'MyPetUI';
+  onKeyUp(){
+    console.log(this.email)
+  }
+
+  xxx = ["vvv","hhhh"]
+  email:String  = "you@gmail.com"
+
 }

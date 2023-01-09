@@ -3,6 +3,8 @@ package com.mypet.MyPet.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Table(name = "persons")
 public class PersonEntity implements Serializable {
@@ -10,7 +12,7 @@ public class PersonEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
+@Column(nullable = false )
     private String personId;
 
     @Column(nullable = false, length =50)
@@ -31,6 +33,16 @@ public class PersonEntity implements Serializable {
     private String emailVerificationToken;
     @Column(nullable = false)
     private Boolean emailVerificationStatus = false ;
+
+    @OneToMany(mappedBy = "person")
+    private List<AdoptionOfferEntity> adoptions;
+    @OneToMany(mappedBy = "person")
+    private List<CommentEntity> comments;
+
+    @OneToMany(mappedBy = "person")
+    private List<PetEntity> pets;
+
+
 
     public long getId() {
         return id;
