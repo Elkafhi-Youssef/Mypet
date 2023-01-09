@@ -20,30 +20,33 @@ public class AuthController {
     private final AuthenticationManager authenticationManager;
     private final UserDetailsService userDetailsService;
     private final JwtUtil jwtUtil;
+
     @PostMapping("/authenticate")
     public ResponseEntity<String> authenticate(@RequestBody PersonRequest request) {
-        System.out.println("here");
-        try {
-            authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
-            );
-
-
+//        System.out.println("here");
+//        try {
+//            authenticationManager.authenticate(
+//                    new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+//            );
+//        final UserDetails user = userDetailsService.loadUserByUsername(request.getEmail());
+//        if (user != null) {
+//            return ResponseEntity.ok(jwtUtil.generateToken(user));
+//        }
+//        } catch( Exception ex){
+//            System.out.println(ex.getMessage());
+//            throw new UserException(ErrorMessages.THE_USER_DONT_EXIST.getErrormessage());
+//        }
+//
+//        return ResponseEntity.status(400).body("error occurred");
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
+        );
         final UserDetails user = userDetailsService.loadUserByUsername(request.getEmail());
-        if (user== null){
-            System.out.println("user not exist");
-        }
-        System.out.println("here2");
         if (user != null) {
             return ResponseEntity.ok(jwtUtil.generateToken(user));
         }
-        } catch( Exception ex){
-            System.out.println(ex.getMessage());
-            throw new UserException(ErrorMessages.THE_USER_DONT_EXIST.getErrormessage());
-        }
 
-        return ResponseEntity.status(400).body("error occurred");
-
+        return null;
     }
 
 }

@@ -1,12 +1,17 @@
 package com.mypet.MyPet.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "pets")
-public class PetEntity {
+public class PetEntity  implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 5169978146215719285L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
