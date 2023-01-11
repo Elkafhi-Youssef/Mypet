@@ -5,7 +5,7 @@ public enum ErrorMessages {
     MISSING_REQUIRED_FILED("Missing required field."),
     INTERNAL_SERVER_ERROR("INTERNAL SAJO SERVER ERROR"),
     THE_USER_DONT_EXIST("the user doesn't exixt "),
-    THE_PASSWORD_DOESNT_CORRECT("The password incorrect");
+    THE_PASSWORD_INCORRECT("The password incorrect");
 
     private String errormessage;
 

@@ -11,7 +11,7 @@ public interface PersonService extends UserDetailsService {
 
     PersonDto createUser(PersonDto user);
 
-    PersonEntity getUser(String email);
+    PersonDto getUser(String email);
 
     PersonEntity getUserByUserId(String userId);
 

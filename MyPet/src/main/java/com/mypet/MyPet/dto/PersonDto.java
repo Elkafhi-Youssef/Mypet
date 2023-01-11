@@ -1,5 +1,8 @@
 package com.mypet.MyPet.dto;
 
+import lombok.Data;
+
+@Data
 public class PersonDto {
 
     private static final long serialVersionUID = 4572267366305279312L;

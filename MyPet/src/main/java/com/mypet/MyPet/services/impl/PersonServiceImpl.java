@@ -48,8 +48,11 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public PersonEntity getUser(String email) {
-        return null;
+    public PersonDto getUser(String email) {
+        PersonEntity checkUser = personRepository.findByEmail(email);
+        ModelMapper modelMapper = new ModelMapper();
+        PersonDto person = modelMapper.map(checkUser, PersonDto.class);
+        return person;
     }
 
     @Override

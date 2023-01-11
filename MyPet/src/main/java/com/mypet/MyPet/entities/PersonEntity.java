@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "persons")
-public class PersonEntity implements Serializable {
+public class PersonEntity implements Serializable  {
     private static final long serialVersionUID = 861212087593794753L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
