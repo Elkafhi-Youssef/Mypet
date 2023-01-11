@@ -34,6 +34,8 @@ public class AdoptionOfferEntity implements Serializable {
     private String numberDays;
     @Column(nullable = false)
     private String price;
+    @Column(nullable = false)
+    private  Boolean status;
 
     @ManyToOne
     @JoinColumn(name = "personid")

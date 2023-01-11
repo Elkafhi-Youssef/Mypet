@@ -31,6 +31,7 @@ class AdoptionOffer{
 -{field} city : String
 -{field} NumberDay: Integer
 -{field} price  : Integer
+-{field} status : Boolean
 }
 
 class Comment {
