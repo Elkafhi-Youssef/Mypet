@@ -1,0 +1,19 @@
+<p>login works!</p>
+<form [formGroup]="form">
+  <fieldset>
+    <legend>Login</legend>
+    <div class="form-field">
+      <label>Email:</label>
+      <input name="email" formControlName="email" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>Password:</label>
+      <input name="password" formControlName="password"
+             type="password" class="p-2 border">
+    </div>
+  </fieldset>
+  <div class="form-buttons">
+    <button class="button button-primary"
+            (click)="login()">Login</button>
+  </div>
+</form>

@@ -1,0 +1,30 @@
+<p>add-pet works!</p>
+<form [formGroup]="form">
+  <fieldset>
+    <legend>Login</legend>
+    <div class="form-field">
+      <label>Pet Name:</label>
+      <input name="petname" formControlName="petname" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>Age:</label>
+      <input name="age" formControlName="age"
+             type="number" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>type:</label>
+      <input name="type" formControlName="type"
+             type="text" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>image:</label>
+      <input name="images" formControlName="images"
+             type="text" class="p-2 border">
+    </div>
+
+  </fieldset>
+  <div class="form-buttons">
+    <button class="button button-primary"
+            (click)="addpet()">Login</button>
+  </div>
+</form>
