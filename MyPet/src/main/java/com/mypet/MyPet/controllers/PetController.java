@@ -4,7 +4,9 @@ import com.mypet.MyPet.dto.PersonDto;
 import com.mypet.MyPet.dto.PetDto;
 import com.mypet.MyPet.entities.PersonEntity;
 import com.mypet.MyPet.requests.PetRequest;
+import com.mypet.MyPet.responses.DataResponse;
 import com.mypet.MyPet.responses.PetResponse;
+import com.mypet.MyPet.responses.Response;
 import com.mypet.MyPet.services.PersonService;
 import com.mypet.MyPet.services.PetService;
 import org.modelmapper.ModelMapper;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/pet")
 public class PetController {
@@ -25,18 +27,13 @@ public class PetController {
 
     @Autowired
     PersonService personService;
-
-    @PostMapping( consumes={MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
-            produces={MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<PetResponse> createPet(@RequestBody PetRequest pet , Principal user) {
-//        System.out.println(pet.toString());
-        System.out.println("try to get data"+user.getName());
+    @PostMapping()
+    public ResponseEntity<Response> createPet(@RequestBody PetRequest pet , Principal user) {
         PersonDto personDto  = personService.getUser(user.getName());
-        System.out.println("user who log in "+ personDto.toString());
         ModelMapper modelMapper = new ModelMapper();
         PetDto petDto = modelMapper.map(pet, PetDto.class);
         petDto.setPerson(personDto);
         PetDto newPet  = petService.createPet(petDto);
-        return new ResponseEntity<PetResponse>(modelMapper.map(newPet, PetResponse.class), HttpStatus.CREATED);
+        return ResponseEntity.ok(new DataResponse("New Pet created successfully", 201, newPet));
     }
 }
