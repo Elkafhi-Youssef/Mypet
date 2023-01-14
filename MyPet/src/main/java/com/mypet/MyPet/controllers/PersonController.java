@@ -39,7 +39,8 @@ public class PersonController {
         ModelMapper modelMapper = new ModelMapper();
         PersonDto personDto = modelMapper.map(personRequest, PersonDto.class);
         PersonDto createUser = personService.createUser(personDto);
-        return ResponseEntity.ok(new DataResponse("Offer created successfully", 201, modelMapper.map(createUser, PersonResponse.class)));
+        PersonResponse pr= modelMapper.map(createUser, PersonResponse.class);
+        return ResponseEntity.ok(new DataResponse("Offer created successfully", 201,pr ));
 
 
     }

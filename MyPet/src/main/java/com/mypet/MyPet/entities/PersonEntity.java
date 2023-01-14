@@ -1,5 +1,6 @@
 package com.mypet.MyPet.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -39,7 +40,7 @@ public class PersonEntity implements Serializable  {
     private List<AdoptionOfferEntity> adoptions;
     @OneToMany(mappedBy = "person")
     private List<CommentEntity> comments;
-
+    @JsonBackReference
     @OneToMany(mappedBy = "person")
     private List<PetEntity> pets;
 

@@ -11,7 +11,7 @@ PetDto updatePet(PetDto petDto);
 
 void deletePet(String petId);
 
-PetDto findPetById(String petId);
+PetEntity findPetById(long Id);
 
 
 }

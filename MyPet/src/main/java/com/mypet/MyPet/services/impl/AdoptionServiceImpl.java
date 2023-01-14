@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 public class AdoptionServiceImpl implements AdoptionService {
     @Autowired
     AdoptionOfferRepository adoptionOfferRepository;
-
     @Autowired
     Utils util;
     @Override

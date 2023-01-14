@@ -5,10 +5,11 @@ import lombok.Data;
 @Data
 public class AdoptionOfferRequest {
 
-    private String title;
     private String description;
     private String city;
     private String numberDays;
     private String price;
-    private  Boolean status;
+
+    private long petId;
+
 }

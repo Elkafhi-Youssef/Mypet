@@ -1,0 +1,63 @@
+<p>adoptions works!</p>
+<!--Then you would create a new component for the post, and use Tailwind CSS classes to style the component.-->
+<!--<div class="bg-white p-6 rounded-lg shadow-md">-->
+<!--  <div class="flex items-center mb-4">-->
+<!--    <img src="path/to/profile-picture" alt="Profile Picture" class="w-12 h-12 rounded-full mr-4">-->
+<!--    <div>-->
+<!--      <h2 class="text-lg font-medium">Username</h2>-->
+<!--      <p class="text-gray-600">Date and Time</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <p>Post content goes here</p>-->
+<!--  <div class="my-4">-->
+<!--    <img src="path/to/post-image" alt="Post Image" class="w-full rounded-lg">-->
+<!--  </div>-->
+<!--  <div class="text-gray-600">-->
+<!--    <p class="text-sm">like and share</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--Here is an example of how the post component's template could look like with comments and replies:-->
+<!--<div class="bg-white p-6 rounded-lg shadow-md">-->
+<!--  <div class="flex items-center mb-4">-->
+<!--    <img src="path/to/profile-picture" alt="Profile Picture" class="w-12 h-12 rounded-full mr-4">-->
+<!--    <div>-->
+<!--      <h2 class="text-lg font-medium">Username</h2>-->
+<!--      <p class="text-gray-600">Date and Time</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <p>Post content goes here</p>-->
+<!--  <div class="my-4">-->
+<!--    <img src="path/to/post-image" alt="Post Image" class="w-full rounded-lg">-->
+<!--  </div>-->
+<!--  <div class="text-gray-600">-->
+<!--    <p class="text-sm">like and share</p>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--  <h3 class="text-lg font-medium">Comments</h3>-->
+<!--  <div *ngFor="let comment of comments">-->
+<!--    <div class="my-2">-->
+<!--      <div class="flex items-center mb-2">-->
+<!--        <img src="path/to/profile-picture" alt="Profile Picture" class="w-8 h-8 rounded-full mr-2">-->
+<!--        <div>-->
+<!--          <h4 class="text-base font-medium">Username</h4>-->
+<!--          <p class="text-gray-600">Comment content</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <button (click)="editComment(comment)">Edit</button>-->
+<!--      <button (click)="deleteComment(comment)">Delete</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <h3 class="text-lg font-medium">Add Comment</h3>-->
+<!--  <app-add-comment (commentAdded)="addComment($event)"></app-add-comment>-->
+<!--</div>-->
+
+
+<!--And here is an example of how the add comment component's template could look like:-->
+<!--<form (ngSubmit)="submitComment()">-->
+<!--  <div class="mb-2">-->
+<!--    <label for="content">Comment</label>-->
+<!--    <textarea [(ngModel)]="comment.content" name="content"></textarea>-->
+<!--  </div>-->
+<!--  <button type="submit">Add Comment</button>-->
+<!--</form>-->

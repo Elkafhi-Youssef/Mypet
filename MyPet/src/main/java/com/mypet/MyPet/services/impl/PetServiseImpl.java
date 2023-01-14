@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PetServiseImpl implements PetService {
     @Autowired
@@ -31,7 +33,10 @@ public class PetServiseImpl implements PetService {
     }
 
     @Override
-    public PetDto findPetById(String petId) {
+    public PetEntity findPetById(long petId) {
+       Optional<PetEntity> findPet = petRepository.findById(petId);
+        if(findPet.isPresent())
+            return findPet.get();
         return null;
     }
 }

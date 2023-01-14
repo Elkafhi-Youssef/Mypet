@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {AuthService} from "../services/auth/auth.service";
-import {PetService} from "../services/pet/pet.service";
+import {AuthService} from "../../services/auth/auth.service";
+import {PetService} from "../../services/pet/pet.service";
 import {Router} from "@angular/router";
-import {Pet} from "../models/pet";
+import {Pet} from "../../models/pet";
 
 @Component({
   selector: 'app-add-pet',

@@ -1,13 +1,18 @@
 package com.mypet.MyPet.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
-@Data
+@Getter
+@Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "pets")
 public class PetEntity  implements Serializable {
     @Serial
@@ -25,10 +30,11 @@ public class PetEntity  implements Serializable {
     private String type;
     @Column(nullable = false)
     private String images;
-
-    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<AdoptionOfferEntity> adoptions;
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "personid")
     private PersonEntity person;
 }

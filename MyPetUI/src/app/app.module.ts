@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
  import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { AdoptionsComponent } from './adoptions/adoptions.component';
-import { PageNotFoudComponent } from './page-not-foud/page-not-foud.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { AddPetComponent } from './add-pet/add-pet.component';
+import { AdoptionsComponent } from './components/adoptions/adoptions.component';
+import { PageNotFoudComponent } from './components/page-not-foud/page-not-foud.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AddPetComponent } from './components/add-pet/add-pet.component';
  import {AppInterceptor} from "./interceptors/app-interceptor.interceptor";
+import { AddAdoptionComponent } from './components/add-adoption/add-adoption.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AddPetComponent } from './add-pet/add-pet.component';
     AdoptionsComponent,
     PageNotFoudComponent,
     NavBarComponent,
-    AddPetComponent
+    AddPetComponent,
+    AddAdoptionComponent
   ],
   imports: [
     BrowserModule,

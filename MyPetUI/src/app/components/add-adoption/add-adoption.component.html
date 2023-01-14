@@ -1,0 +1,37 @@
+<p>add-adoption works!</p>
+<form [formGroup]="form">
+  <fieldset>
+    <legend>add adoption</legend>
+    <div class="form-field">
+      <label>description:</label>
+      <input name="description" formControlName="description"
+             type="text" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>city:</label>
+      <input name="city" formControlName="city"
+             type="text" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>numberDays:</label>
+      <input name="numberDays" formControlName="numberDays"
+             type="number" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>price:</label>
+      <input name="price" formControlName="price"
+             type="number" class="p-2 border">
+    </div>
+    <div class="form-field">
+      <label>id pet:</label>
+      <input name="petId" formControlName="petId"
+             type="number" class="p-2 border">
+    </div>
+
+  </fieldset>
+  <div class="form-buttons">
+    <button class="button button-primary"
+            (click)="addAdoption()">Login</button>
+  </div>
+</form>
+
