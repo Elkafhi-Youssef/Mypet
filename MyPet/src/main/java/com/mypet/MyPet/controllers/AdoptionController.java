@@ -44,5 +44,5 @@ public class AdoptionController {
         AdoptionOfferDto createAdoption = service.createAdoption(adoptionDto);
         return ResponseEntity.ok(new DataResponse("New adoption created successfully", 201, modelMapper.map(createAdoption, AdoptionOfferResponse.class)));
     }
-    
+
 }

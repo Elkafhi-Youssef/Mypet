@@ -4,6 +4,7 @@ import {AuthService} from "../../services/auth/auth.service";
 import {PetService} from "../../services/pet/pet.service";
 import {Router} from "@angular/router";
 import {Pet} from "../../models/pet";
+import {AppResponse} from "../../models/app-response";
 
 @Component({
   selector: 'app-add-pet',
@@ -39,8 +40,6 @@ export class AddPetComponent {
         }
       })
     }
-
-
   }
 
 }

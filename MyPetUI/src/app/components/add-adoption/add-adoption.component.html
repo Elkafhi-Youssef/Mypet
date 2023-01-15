@@ -24,9 +24,12 @@
     </div>
     <div class="form-field">
       <label>id pet:</label>
-      <input name="petId" formControlName="petId"
-             type="number" class="p-2 border">
+      <select name="petId" formControlName="petId" class="p-2 border">
+        <option *ngFor="let pp of petOfPersonConnected" [value]="pp.id">{{ pp.petname }}</option>
+      </select>
     </div>
+
+
 
   </fieldset>
   <div class="form-buttons">

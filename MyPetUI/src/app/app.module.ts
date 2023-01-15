@@ -12,6 +12,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AddPetComponent } from './components/add-pet/add-pet.component';
  import {AppInterceptor} from "./interceptors/app-interceptor.interceptor";
 import { AddAdoptionComponent } from './components/add-adoption/add-adoption.component';
+import { ContainerComponent } from './components/container/container.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AddAdoptionComponent } from './components/add-adoption/add-adoption.com
     PageNotFoudComponent,
     NavBarComponent,
     AddPetComponent,
-    AddAdoptionComponent
+    AddAdoptionComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
