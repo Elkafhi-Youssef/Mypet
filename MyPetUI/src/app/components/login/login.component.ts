@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth/auth.service";
 import {LocalStorageService} from "../../services/storage/local-storage.service";
 import {Router} from "@angular/router";
@@ -19,10 +19,17 @@ export class LoginComponent {
     private localStorageService: LocalStorageService,
     private router: Router){
     this.form = this.fb.group({
-      email: "",
-      password: ""
+      email: ["elkafhiyoussef@gmail.com",[Validators.required,Validators.email]],
+      password: ["youssef1999",[Validators.required]]
     });
   }
+
+  // ngOnInit(){
+  //       this.form = new FormGroup<any>({
+  //         'email': new FormControl("emial@gmail.com", [Validators.required ,Validators.email]),
+  //         'password': new FormControl(null)
+  //       })
+  //   }
 
   login(){
     const values = this.form.value;

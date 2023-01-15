@@ -36,4 +36,10 @@ public class PetController {
         PetDto newPet  = petService.createPet(petDto);
         return ResponseEntity.ok(new DataResponse("New Pet created successfully", 201, newPet));
     }
+    @GetMapping("/all")
+    public ResponseEntity<Response> getAllJobTitles( Principal user){
+        PersonDto personDto  = personService.getUser(user.getName());
+        Long id = personDto.getId();
+        return ResponseEntity.ok(new DataResponse("Job titles list", 200,petService.getAll(id)));
+    }
 }

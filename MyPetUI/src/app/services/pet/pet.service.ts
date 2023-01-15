@@ -20,4 +20,7 @@ export class PetService {
     });
     return this.http.post<AppResponse>(`${url}/pet`,pet, {headers});
   }
+  getPetsListForAdoption(){
+    return this.http.get<AppResponse>(`${url}/pet/all`);
+  }
 }
