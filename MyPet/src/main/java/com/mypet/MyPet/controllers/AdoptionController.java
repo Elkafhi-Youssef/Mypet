@@ -4,6 +4,7 @@ import com.mypet.MyPet.dto.AdoptionOfferDto;
 import com.mypet.MyPet.dto.PersonDto;
 import com.mypet.MyPet.dto.PetDto;
 import com.mypet.MyPet.entities.PetEntity;
+import com.mypet.MyPet.requests.AcceptedRequest;
 import com.mypet.MyPet.requests.AdoptionOfferRequest;
 import com.mypet.MyPet.responses.AdoptionOfferResponse;
 import com.mypet.MyPet.responses.DataResponse;
@@ -39,10 +40,22 @@ public class AdoptionController {
         System.out.println("the pet that we find "+findPet.toString());
         PersonDto personDto  = personService.getUser(user.getName());
         AdoptionOfferDto adoptionDto = modelMapper.map(adoptionRequest, AdoptionOfferDto.class);
-        adoptionDto.setPerson(personDto);
-        adoptionDto.setPet(findPet);
-        AdoptionOfferDto createAdoption = service.createAdoption(adoptionDto);
+//        adoptionDto.setPerson(personDto);
+//        adoptionDto.setPet(findPet);
+        AdoptionOfferDto createAdoption = service.createAdoption(adoptionDto,findPet,personDto );
         return ResponseEntity.ok(new DataResponse("New adoption created successfully", 201, modelMapper.map(createAdoption, AdoptionOfferResponse.class)));
+    }
+    @GetMapping("/all")
+    public ResponseEntity<Response> getAllFreeAdoptions( ){
+
+        return ResponseEntity.ok(new DataResponse("success ", 200,service.getAll()));
+    }
+    @PostMapping("/accepted")
+    public ResponseEntity<Response> accepted(@RequestBody AcceptedRequest acceptedRequest, Principal user){
+        PersonDto personDto  = personService.getUser(user.getName());
+        AdoptionOfferDto adoptionOffer = service.accept(personDto, (long) acceptedRequest.getId());
+
+        return ResponseEntity.ok(new DataResponse("success ", 200,acceptedRequest.getId()));
     }
 
 }

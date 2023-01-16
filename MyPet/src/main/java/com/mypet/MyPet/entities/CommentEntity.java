@@ -1,15 +1,21 @@
 package com.mypet.MyPet.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "Comments")
+@JsonIdentityInfo(         generator = ObjectIdGenerators.PropertyGenerator.class,         property = "id")
 public class CommentEntity  implements Serializable {
 
     @Serial

@@ -7,7 +7,7 @@ public class PetResponse {
     private String petname;
     private int age;
     private String type;
-    private String images;
+    private String image;
     private PersonResponse person;
 
 }

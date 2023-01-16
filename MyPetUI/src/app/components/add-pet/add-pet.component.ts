@@ -43,8 +43,8 @@ export class AddPetComponent {
 
     // console.log(formData.get('age'))
     console.log(this.form.value.image);
-if (pet) {
-  this.petService.createPet(pet).subscribe({
+    if (pet) {
+    this.petService.createPet(pet).subscribe({
     next: (res)=>{
       console.log(res)
       alert(res.message)
@@ -53,8 +53,7 @@ if (pet) {
       console.log(error)
 
     }
-  })
-}
+   })}
   }
 
 }

@@ -1,9 +1,7 @@
 package com.mypet.MyPet.entities;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "AdoptionOffers")
+@JsonIdentityInfo(         generator = ObjectIdGenerators.PropertyGenerator.class,         property = "id")
 public class AdoptionOfferEntity implements Serializable {
 
     @Serial
@@ -40,15 +39,18 @@ public class AdoptionOfferEntity implements Serializable {
     @Column(nullable = false,columnDefinition = "boolean default false")
     private  Boolean status = false;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "personid")
     private PersonEntity person;
 
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "personacceptedid")
+    private PersonEntity personaccepted;
+
     @OneToMany(mappedBy = "adoptionOffer", cascade = CascadeType.ALL)
     private List<CommentEntity> comments;
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "petid")
     private PetEntity pet;

@@ -1,14 +1,21 @@
 package com.mypet.MyPet.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "persons")
+@JsonIdentityInfo(         generator = ObjectIdGenerators.PropertyGenerator.class,         property = "id")
 public class PersonEntity implements Serializable  {
     private static final long serialVersionUID = 861212087593794753L;
     @Id
@@ -35,12 +42,12 @@ public class PersonEntity implements Serializable  {
     private String emailVerificationToken;
     @Column(nullable = false)
     private Boolean emailVerificationStatus = false ;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "person")
     private List<AdoptionOfferEntity> adoptions;
     @OneToMany(mappedBy = "person")
     private List<CommentEntity> comments;
-    @JsonBackReference
+@JsonIgnore
     @OneToMany(mappedBy = "person")
     private List<PetEntity> pets;
 

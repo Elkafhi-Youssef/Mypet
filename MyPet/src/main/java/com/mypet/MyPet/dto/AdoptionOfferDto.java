@@ -13,4 +13,5 @@ public class AdoptionOfferDto {
     private  Boolean status = Boolean.FALSE;
     private PersonDto person;
     private PetEntity pet;
+    private PersonKeeperDto personaccepted;
 }
