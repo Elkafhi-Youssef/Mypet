@@ -28,8 +28,9 @@ public class PetEntity  implements Serializable {
 
     @Column(nullable = false)
     private String type;
-    @Column(nullable = false)
-    private String images;
+    @Lob
+    @Column(nullable = false,columnDefinition = "text")
+    private String image;
     @JsonIgnore
     @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<AdoptionOfferEntity> adoptions;

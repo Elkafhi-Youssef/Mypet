@@ -13,7 +13,7 @@ public class PetDto  implements Serializable {
     private String petname;
     private int age;
     private String type;
-    private String images;
+    private String image;
 
     private PersonDto person;
 }

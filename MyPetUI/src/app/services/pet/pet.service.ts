@@ -14,7 +14,7 @@ export class PetService {
   constructor(private http: HttpClient,
               private router: Router,
               private localStorageService: LocalStorageService) { }
-  createOffer(pet: Pet){
+  createPet(pet: Pet){
     const headers = new HttpHeaders({
       'Content-Type':'application/json'
     });

@@ -1,30 +1,197 @@
-<p>add-pet works!</p>
-<form [formGroup]="form">
-  <fieldset>
-    <legend>Login</legend>
-    <div class="form-field">
-      <label>Pet Name:</label>
-      <input name="petname" formControlName="petname" class="p-2 border">
-    </div>
-    <div class="form-field">
-      <label>Age:</label>
-      <input name="age" formControlName="age"
-             type="number" class="p-2 border">
-    </div>
-    <div class="form-field">
-      <label>type:</label>
-      <input name="type" formControlName="type"
-             type="text" class="p-2 border">
-    </div>
-    <div class="form-field">
-      <label>image:</label>
-      <input name="images" formControlName="images"
-             type="text" class="p-2 border">
-    </div>
+<!--<p>add-pet works!</p>-->
+<!--<form [formGroup]="form">-->
+<!--  <fieldset>-->
+<!--    <legend>Login</legend>-->
+<!--    <div class="form-field">-->
+<!--      <label>Pet Name:</label>-->
+<!--      <input name="petname" formControlName="petname" class="p-2 border">-->
+<!--    </div>-->
+<!--    <div class="form-field">-->
+<!--      <label>Age:</label>-->
+<!--      <input name="age" formControlName="age"-->
+<!--             type="number" class="p-2 border">-->
+<!--    </div>-->
+<!--    <div class="form-field">-->
+<!--      <label>type:</label>-->
+<!--      <input name="type" formControlName="type"-->
+<!--             type="text" class="p-2 border">-->
+<!--    </div>-->
+<!--    <div class="form-field">-->
+<!--      <label>image:</label>-->
+<!--      <input name="image" formControlName="image"-->
+<!--             type="text" class="p-2 border">-->
+<!--    </div>-->
 
-  </fieldset>
-  <div class="form-buttons">
-    <button class="button button-primary"
-            (click)="addpet()">Login</button>
+<!--  </fieldset>-->
+<!--  <div class="form-buttons">-->
+<!--    <button class="button button-primary"-->
+<!--            type="submit"-->
+<!--            (click)="addpet()">Login</button>-->
+<!--  </div>-->
+<!--</form>-->
+
+<section class="bg-white">
+  <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
+    <section
+      class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
+    >
+      <img
+        alt="Night"
+        src="./assets/images/group.png"
+        class="absolute inset-0 h-full w-full object-cover opacity-80"
+      />
+
+      <div class="hidden lg:relative lg:block lg:p-12">
+        <a class="block text-white" href="/">
+          <span class="sr-only">Home</span>
+          <img class=" w-18 h-12 " src="./assets/images/logo.png" alt="">
+        </a>
+
+        <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+          Welcome to Pet House
+        </h2>
+
+        <p class="mt-4 leading-relaxed text-white/90">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
+          dolorum aliquam, quibusdam aperiam voluptatum.
+        </p>
+      </div>
+    </section>
+
+    <main
+      aria-label="Main"
+      class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6"
+    >
+      <div class="max-w-xl lg:max-w-3xl">
+        <div class="relative -mt-16 block lg:hidden">
+          <a
+            class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
+            href="/"
+          >
+            <span class="sr-only">Home</span>
+            <img class=" w-18 h-12 " src="./assets/images/logo.png" alt="">
+          </a>
+
+          <h1
+            class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
+          >
+            Welcome to Pet House
+          </h1>
+
+          <p class="mt-4 leading-relaxed text-gray-500">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+            nam dolorum aliquam, quibusdam aperiam voluptatum.
+          </p>
+        </div>
+
+        <form [formGroup]="form"  class="mt-8 grid grid-cols-6 gap-6">
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="petname"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Pet Name
+            </label>
+
+            <input
+              type="text"
+              id="petname"
+              name="petname" formControlName="petname"
+              placeholder="Enter the Pet name"
+              class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!form.get('petname')?.valid && form.get('petname')?.touched " > please enter a valid pet name </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="age"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Age
+            </label>
+
+            <input
+              type="number"
+              id="age"
+              name="age" formControlName="age"
+              placeholder="Enter the Pet age"
+              class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!form.get('age')?.valid && form.get('age')?.touched " > please enter a valid age </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label for="type" class="block text-sm font-medium text-gray-700">
+              Type
+            </label>
+            <select id="type" name="type" formControlName="type" class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu">
+              <option [selected]="true" value="Select the pet type">Select the pet type</option>
+              <option value="cat">Cat</option>
+            </select>
+            <span class=" text-red-500" *ngIf="!form.get('type')?.valid && form.get('type')?.touched " > please enter a valid type </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="image"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Image
+            </label>
+
+            <input
+              type="file"
+              id="image"
+              name="image"
+              formControlName="image"
+              (change)="onFileChange($event)"
+              class="form-control
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu "
+
+            />
+            <span class=" text-red-500" *ngIf="!form.get('image')?.valid && form.get('image')?.touched " > please enter a valid image </span>
+          </div>
+
+
+
+          <div class="col-span-6">
+
+          </div>
+
+
+
+          <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+    <button
+      class="ml-3 inline-block rounded-lg bg-thirdbleu px-5 py-3 text-sm font-medium text-primarybleu hover:bg-primarybleu hover:text-white"
+      (click)="addpet()"
+      [disabled]="form.invalid"
+    >
+      Create an account
+    </button>
+
+<!--            <p class="mt-4 text-sm text-gray-500 sm:mt-0">-->
+<!--              Already have an account?-->
+<!--              <a href="#" class="text-gray-700 underline">Log in</a>.-->
+<!--            </p>-->
+          </div>
+        </form>
+      </div>
+    </main>
   </div>
-</form>
+</section>
+
