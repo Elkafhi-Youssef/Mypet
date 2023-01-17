@@ -13,6 +13,7 @@ import { AddPetComponent } from './components/add-pet/add-pet.component';
  import {AppInterceptor} from "./interceptors/app-interceptor.interceptor";
 import { AddAdoptionComponent } from './components/add-adoption/add-adoption.component';
 import { ContainerComponent } from './components/container/container.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContainerComponent } from './components/container/container.component';
     NavBarComponent,
     AddPetComponent,
     AddAdoptionComponent,
-    ContainerComponent
+    ContainerComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

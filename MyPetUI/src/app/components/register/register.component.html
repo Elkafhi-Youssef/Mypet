@@ -1,0 +1,185 @@
+
+<section class="bg-white">
+  <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
+    <section
+      class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
+    >
+      <img
+        alt="Night"
+        src="./assets/images/group.png"
+        class="absolute inset-0 h-full w-full object-cover opacity-80"
+      />
+
+      <div class="hidden lg:relative lg:block lg:p-12">
+        <a class="block text-white" href="/">
+          <span class="sr-only">Home</span>
+          <img class=" w-18 h-12 " src="./assets/images/logo.png" alt="">
+        </a>
+
+        <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+          Welcome to Pet House
+        </h2>
+
+        <p class="mt-4 leading-relaxed text-white/90">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
+          dolorum aliquam, quibusdam aperiam voluptatum.
+        </p>
+      </div>
+    </section>
+
+    <main
+      aria-label="Main"
+      class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6"
+    >
+      <div class="max-w-xl lg:max-w-3xl">
+        <div class="relative -mt-16 block lg:hidden">
+          <a
+            class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
+            href="/"
+          >
+            <span class="sr-only">Home</span>
+            <img class=" w-18 h-12 " src="./assets/images/logo.png" alt="">
+          </a>
+
+          <h1
+            class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
+          >
+            Welcome to Pet House
+          </h1>
+
+          <p class="mt-4 leading-relaxed text-gray-500">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+            nam dolorum aliquam, quibusdam aperiam voluptatum.
+          </p>
+        </div>
+
+        <form [formGroup]="registerForm"  class="mt-8 grid grid-cols-6 gap-6">
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="fullName"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Pet Name
+            </label>
+
+            <input
+              type="text"
+              id="fullName"
+              name="fullName" formControlName="fullName"
+              placeholder="Enter Your FullName"
+              class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!registerForm.get('fullName')?.valid && registerForm.get('fullName')?.touched " > please enter a valid fullName </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              name="email" formControlName="email"
+              placeholder="Enter Your Email"
+              class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched " > please enter a valid email </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label for="password" class="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password" formControlName="password"
+              placeholder="Enter Your Password"
+              class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.touched " > please enter a valid password </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="image"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Image
+            </label>
+
+            <input
+              type="file"
+              id="image"
+              name="image"
+              formControlName="image"
+              (change)="onFileChange($event)"
+              class="form-control
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+                w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu "
+
+            />
+            <span class=" text-red-500" *ngIf="!registerForm.get('image')?.valid && registerForm.get('image')?.touched " > please enter a valid image </span>
+          </div>
+
+
+
+          <div class="col-span-6">
+
+          </div>
+
+          <div class="col-span-6 ">
+            <label
+              for="phoneNumber"
+              class="block text-sm font-medium text-gray-700"
+            >
+              PhoneNumber
+            </label>
+
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber" formControlName="phoneNumber"
+              placeholder="Enter Your PhoneNumber"
+              class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!registerForm.get('phoneNumber')?.valid && registerForm.get('phoneNumber')?.touched " > please enter a valid phoneNumber </span>
+          </div>
+
+          <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+            <button
+              class="ml-3 inline-block rounded-lg bg-thirdbleu px-5 py-3 text-sm font-medium text-primarybleu hover:bg-primarybleu hover:text-white"
+              (click)="register()"
+              [disabled]="registerForm.invalid"
+            >
+              Create an account
+            </button>
+
+            <!--            <p class="mt-4 text-sm text-gray-500 sm:mt-0">-->
+            <!--              Already have an account?-->
+            <!--              <a href="#" class="text-gray-700 underline">Log in</a>.-->
+            <!--            </p>-->
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</section>
+

@@ -29,7 +29,8 @@ public class PersonEntity implements Serializable  {
 
     @Column(nullable = false, length =50, unique = true)
     private String email;
-    @Column(nullable = false)
+    @Lob
+    @Column(nullable = false,columnDefinition = "text")
     private String image;
     @Column(nullable = true , length =50)
     private String type ;

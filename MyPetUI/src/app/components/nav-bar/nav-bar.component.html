@@ -1,17 +1,18 @@
-<div class="  border-black border-2">
-  <div class=" h-16 flex justify-between items-center">
-  <div class="jasmine-bar">logo</div>
-  <div class="">
-    <ul class="flex items-center">
-      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="home">Home</a></li>
-      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="adoptions">Adoptions</a></li>
-      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="login">Login</a></li>
-      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="addAdoption">Create Adoption</a></li>
-      <a class="p-2 text-neutral text-lg hover:underline" routerLink="addPet">Add pet</a>
-    </ul>
-  </div>
-  </div>
-</div>
+<!--<div class="  border-black border-2">-->
+<!--  <div class=" h-16 flex justify-between items-center">-->
+<!--  <div class="jasmine-bar">logo</div>-->
+<!--  <div class="">-->
+<!--    <ul class="flex items-center">-->
+<!--      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="home">Home</a></li>-->
+<!--      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="adoptions">Adoptions</a></li>-->
+<!--      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="login">Login</a></li>-->
+<!--      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="addAdoption">Create Adoption</a></li>-->
+<!--      <li><a class="p-2 text-neutral text-lg hover:underline" routerLink="register">register</a></li>-->
+<!--      <a class="p-2 text-neutral text-lg hover:underline" routerLink="addPet">Add pet</a>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--  </div>-->
+<!--</div>-->
 <header aria-label="Site Header" class="bg-white">
   <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
@@ -59,7 +60,7 @@
         <div class="sm:flex sm:gap-4">
           <a
             class="rounded-md bg-primarybleu px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="/"
+            routerLink="login"
           >
             Login
           </a>
@@ -67,7 +68,7 @@
           <div class="hidden sm:flex">
             <a
               class="rounded-md bg-thirdbleu px-5 py-2.5 text-sm font-medium text-primarybleu hover:bg-primarybleu hover:text-white"
-              href="/"
+              routerLink="register"
             >
               Register
             </a>
