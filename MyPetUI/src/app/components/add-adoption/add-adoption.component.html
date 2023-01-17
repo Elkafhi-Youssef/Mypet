@@ -1,40 +1,162 @@
-<p>add-adoption works!</p>
-<form [formGroup]="form">
-  <fieldset>
-    <legend>add adoption</legend>
-    <div class="form-field">
-      <label>description:</label>
-      <input name="description" formControlName="description"
-             type="text" class="p-2 border">
-    </div>
-    <div class="form-field">
-      <label>city:</label>
-      <input name="city" formControlName="city"
-             type="text" class="p-2 border">
-    </div>
-    <div class="form-field">
-      <label>numberDays:</label>
-      <input name="numberDays" formControlName="numberDays"
-             type="number" class="p-2 border">
-    </div>
-    <div class="form-field">
-      <label>price:</label>
-      <input name="price" formControlName="price"
-             type="number" class="p-2 border">
-    </div>
-    <div class="form-field">
-      <label>id pet:</label>
-      <select name="petId" formControlName="petId" class="p-2 border">
-        <option *ngFor="let pp of petOfPersonConnected" [value]="pp.id">{{ pp.petname }}</option>
-      </select>
-    </div>
+<section class="bg-white mt-12">
+  <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
+    <section
+      class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6"
+    >
+      <img
+        alt="Night"
+        src="./assets/images/group.png"
+        class="absolute inset-0 h-full w-full object-cover opacity-80"
+      />
+
+      <div class="hidden lg:relative lg:block lg:p-12">
+        <a class="block text-white" href="/">
+          <span class="sr-only">Home</span>
+          <img class=" w-18 h-12 " src="./assets/images/logo.png" alt="">
+        </a>
+
+        <h2 class="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+          Welcome to Pet House
+        </h2>
+
+        <p class="mt-4 leading-relaxed text-white/90">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
+          dolorum aliquam, quibusdam aperiam voluptatum.
+        </p>
+      </div>
+    </section>
+
+    <main
+      aria-label="Main"
+      class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:py-12 lg:px-16 xl:col-span-6"
+    >
+      <div class="max-w-xl lg:max-w-3xl">
+        <div class="relative -mt-16 block lg:hidden">
+          <a
+            class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
+            href="/"
+          >
+            <span class="sr-only">Home</span>
+            <img class=" w-18 h-12 " src="./assets/images/logo.png" alt="">
+          </a>
+
+          <h1
+            class="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl"
+          >
+            Welcome to Pet House
+          </h1>
+
+          <p class="mt-4 leading-relaxed text-gray-500">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+            nam dolorum aliquam, quibusdam aperiam voluptatum.
+          </p>
+        </div>
+
+        <form [formGroup]="form"  class="mt-8 grid grid-cols-6 gap-6">
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="city"
+              class="block text-sm font-medium text-gray-700"
+            >
+              City
+            </label>
+
+            <input
+              type="text"
+              id="city"
+              name="city" formControlName="city"
+              placeholder="Enter Your City"
+              class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!form.get('city')?.valid && form.get('city')?.touched " > please enter a valid city </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="numberDays"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Number Of Days
+            </label>
+
+            <input
+              type="number"
+              id="numberDays"
+              name="numberDays" formControlName="numberDays"
+              placeholder="Enter the Number Of Days"
+              class="w-full rounded-lg border-primarybleu p-3  text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!form.get('numberDays')?.valid && form.get('numberDays')?.touched " > please enter a valid number of Days </span>
+          </div>
+
+          <div class="col-span-6  sm:col-span-3">
+            <label for="petId" class="block text-sm font-medium text-gray-700">
+              Pet Name
+            </label>
+            <select id="petId" name="petId" formControlName="petId" class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu">
+              <option [selected]="true" value="">Select the pet Name</option>
+              <option *ngFor="let pp of petOfPersonConnected" [value]="pp.id">{{ pp.petname }}</option>
+            </select>
+            <span class=" text-red-500" *ngIf="!form.get('petId')?.valid && form.get('petId')?.touched " > please enter a valid Name </span>
+          </div>
+
+          <div class="col-span-6 sm:col-span-3">
+            <label
+              for="price"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Price
+            </label>
+
+            <input
+              type="number"
+              id="price"
+              name="price" formControlName="price"
+              placeholder="Enter the Price"
+              class="w-full rounded-lg border-primarybleu p-3  text-sm shadow-sm bg-thirdbleu"
+            />
+            <span class=" text-red-500" *ngIf="!form.get('price')?.valid && form.get('price')?.touched " > please enter a valid Price </span>
+          </div>
+
+          <div class="col-span-6 ">
+            <label
+              for="description"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Description
+            </label>
+
+            <textarea id="description" name="description" formControlName="description"
+            class="w-full rounded-lg border-primarybleu p-3 pr-12 text-sm shadow-sm bg-thirdbleu"
+                      placeholder="Enter a description"
+            >
+
+            </textarea>
+            <span class=" text-red-500" *ngIf="!form.get('description')?.valid && form.get('description')?.touched " > please enter a valid Description </span>
+          </div>
 
 
 
-  </fieldset>
-  <div class="form-buttons">
-    <button class="button button-primary"
-            (click)="addAdoption()">Login</button>
+
+
+          <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+            <button
+              class="ml-3 inline-block rounded-lg bg-thirdbleu px-5 py-3 text-sm font-medium text-primarybleu hover:bg-primarybleu hover:text-white"
+              (click)="addAdoption()"
+              [disabled]="form.invalid"
+            >
+              Create an Adoption
+            </button>
+
+            <!--            <p class="mt-4 text-sm text-gray-500 sm:mt-0">-->
+            <!--              Already have an account?-->
+            <!--              <a href="#" class="text-gray-700 underline">Log in</a>.-->
+            <!--            </p>-->
+          </div>
+        </form>
+      </div>
+    </main>
   </div>
-</form>
+</section>
+
 
